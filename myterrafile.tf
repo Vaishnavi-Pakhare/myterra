@@ -12,7 +12,8 @@ provider "aws" {
 access_key = var.AWS_ACCESS_KEY
 secret_key = var.AWS_SECRET_KEY
 region = "us-east-1"
-} resource "aws_instance" "myec2" {
+} 
+resource "aws_instance" "myec2" {
   ami           = "ami-00b8917ae86a424c9"
   instance_type = "t2.micro"
   vpc_security_group_ids=[aws_security_group.web-sg.id]
@@ -35,7 +36,8 @@ ingress {
  to_port=80
 protocol="tcp"
 cidr_blocks= ["0.0.0.0/0"]
-}  ingress {
+} 
+ingress {
  from_port=22
  to_port=22
 protocol="tcp"
